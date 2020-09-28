@@ -14,10 +14,15 @@ marks = [ 40, 50, 60, 70 ]
   
 # using zip() to map values : parallel join
 mapped1a = zip(name, roll_no, marks) 
+
 mapped1a  
+
 # converting values to print as set 
+
 mapped1b = list(mapped1a) 
 mapped1b  
+
+
 # printing resultant values  
 print ("The zipped result is : ", mapped1b) 
 

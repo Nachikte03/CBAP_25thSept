@@ -3,9 +3,17 @@
 #logical operations
 
 
+if (condition)
+   {
+    
+    
+     }
 
-if true then:
+
+if [conditional true then]:
     statement
+
+
 
 = "assignment operator"
 
@@ -38,14 +46,16 @@ a!=b
 
 
 x=2
-if (x==1):
+
+if (x==2):
+    
     print("right")
 
 
 #short methods
-if x == 1 : print("x = 1")
-#
+if x == 2: print("x = 1")
 
+#
 
 
 if True then:
@@ -64,14 +74,19 @@ else:
 
 
 
-Marks=50
+Marks=90
+
+
 
 if(Marks>80):
     print("A")
-elif (Marks>70 and Marks<80):
+
+elif (Marks>70 and Marks<=80):
     print("B")
-elif(Marks>60 and Marks<70):
+
+elif(Marks>60 and Marks<=70):
     print("C")
+
 else:
     print("F")
 
@@ -99,6 +114,7 @@ if x == 1:
     print(" x=1")
 else:
     print("x not equal to 1")
+
 x=2
 
 if x == 1: 
@@ -128,22 +144,33 @@ else :
 #shorthand if
 
 #or and and
+
+
 x=3; y=4; z=5
+
 if x < y and y < z:
   print("Both conditions are True")
+
 
 z=2
 
 if x < y or y > z:
   print("Both conditions are True")
 
+
+
 if (x < y) or (y > z) :
   print("Either conditions are True")
+
+
 
 if ((x < y) or (y > z)) and (x > 10):
     print("Both conditions are True")
 else:
     print("Conditions are not True")
+
+
+
 
 if ((x < y) or (y > z)) or (x > 10):
     print("Either conditions are True")

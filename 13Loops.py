@@ -7,27 +7,39 @@ teamA = ['India', 'Australia','Pakistan', 'England']   # 4elements   list index 
 
 teamA
 
+
 teamA[0]
 teamA[1]
 teamA[2]
 teamA[3]
 
-#for varname in list:
-#   statements
+
+'''
+for [varname] in [list]:
+   statements
+'''
+
 
 for var in teamA :
     print(var)
-
 
 
 lenteamA= len(teamA)
 lenteamA
 
 
+for i in range(lenteamA):
+    print(teamA[i])
+
+
+
+
 #LT= range(lenteamA)
 #LT 
 
 r1= range(1, 11)
+
+
 
 for i in r1:
     print(2*i)
@@ -42,8 +54,7 @@ teamB
 teamA = ['India', 'Australia','Pakistan', 'England']   # 4elements   list index 0-3
 
 for i in range(lenteamA):
-    #    teamB.append(teamA[i])
-    teamA[i]=str(teamA[i]) +"_A"
+    teamA[i]=str(teamA[i]) + "_A"
     
     
 teamA
@@ -58,23 +69,39 @@ for i in teamA[0]: print(i)
 
 
 for i in teamA:
-    if i == 'India' :
-        print('India is in Team A', '\t : ' , i)        
+    if i == 'India_A' :
+        print('Team A : ' , i)        
     else:
-        print("India is not in Team A")
+        print("Not Team A : ", i)
 
-    
+
 #x = 'Pakistan'
+
 x = 'Bangladesh'
 teamA
 
-for i in teamA:
-    if i == x :
-        print(x , " is in Team A", '\t : ' , i)
-        break   #exit if x is found otherwise loop over
-    else:
-        print(x , " is not in Team A")
 
+for i in teamA:
+    if i == 'Australia_A' :
+        print(i , "Inner")
+        break
+    print(i, "Outer")
+    
+    
+for i in teamA:
+    if i == 'Australia_A' :
+        print(i , "Inner")
+        continue
+    print(i, "Outer")
+   
+
+for i in teamA:
+    if i == 'Australia_A' :
+        print(i , "Inner")
+        pass
+    print(i, "Outer")
+   
+    
 #
 
 
@@ -130,7 +157,7 @@ for x in range(2,10,2) :
 
 
 
-while (False):    
+while (True):    
     print('Vikas')
 
 
@@ -147,6 +174,7 @@ print("i =",9)
 
 i = 1
 
+
 while (i <= 10):
     print("i =",i)
     i = i + 1  #import to increment
@@ -157,8 +185,8 @@ while (i <= 10):
 #break the loop in between
 
 i = 1
-while (i < 10):
-    
+
+while (i < 10):    
     if i == 5 : #end here
         print('Exiting Loop at this point')
         break
@@ -173,7 +201,7 @@ while (i < 10):
     i += 1
     if i == 5 : #continue with loop
         continue
-    print(i, end = '\t')
+    print(i)
     
 
 
@@ -203,23 +231,4 @@ while(i<10):
         
         
         
-L1=[10,20,30]    
-L2=L1
-L1
-L2
-
-L2[0]=40
-L2
-L1 
-
-L3=L1.copy()
-L3[0]=40
-L3
-L1 
-   
-
-
-
-
-
 
