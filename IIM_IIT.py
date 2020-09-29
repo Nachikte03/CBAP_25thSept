@@ -264,3 +264,55 @@ oper("vikas")
 
 
 
+import random
+
+x= random.randint(1,10)
+x
+
+L1 = [11,22,33,44,55]
+
+random.choice(L1)
+
+random.choices(L1, k=3)
+
+
+
+
+w_s ={20,30,40,50}
+
+w =random.choice(tuple(w_s))
+print(w)
+
+ws =random.choices(tuple(w_s), k=10)
+print(ws)
+
+
+
+w_d = {"Kelly": 50, "Red":68, "Jhon":30}
+
+key = random.choice(tuple(w_d.keys()))
+key
+
+
+val = random.choice(tuple(w_d.values()))
+val
+
+
+
+for i in range(5):
+    random.seed(1)
+    print(random.randint(1,1000))
+
+
+
+for i in range(5):
+    print(random.randint(1,1000))
+
+
+
+
+
+
+
+
+

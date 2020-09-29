@@ -8,6 +8,8 @@ import numpy
 
 import numpy as np
 
+
+
 np.random.randint(100,1000)
 
 
@@ -16,14 +18,17 @@ x0 = np.random.randint(10);
 x0
 
 #1-Dim
-x1 = np.random.randint(100,200, size=10);
+x1 = np.random.randint(100,200, size=10)
 x1
 
 #2-Dim
 x2 = np.random.randint(10, 20, size=(3,4))
 x2
 
-x2.shape()
+sh=x2.shape
+
+sh[0]
+sh[1]
 
 #3-Dim
 x3 = np.random.randint(10, 20, size=(6,4,5))
@@ -50,18 +55,26 @@ x1
 x1[2]
 
 x1[1:4]
+
 x1[3:]
+
+x1[:4]
+
+x1[:-2]
+
+x1[-5:-2]
 
 
 x2 = np.random.randint(10, 20, size=(5,5))
 x2                       
 
 x2[2][2]
+x2[4][3]
 
-x2[]
+x2
 
 #2-Dim
-x2[0]
+x2[1]
 
 x2[0,0]
 x2[0,1]  #1st row, 2nd col
@@ -73,8 +86,10 @@ x2[1,1]  #1st row, 2nd col
 x2[1,2]
 x2[1,3]
 
+x2
 
 x2[0:,0:]  #all
+
 x2  #full array
 
 
@@ -85,13 +100,18 @@ x2[4,3]
 
 
 x2[:1, 2:4]
-x2[0:,0:1]  #1st col
+
+x2[:,1:2]  #1st col
+
 x2[:, :1]
 
 
 x2[:2, :3] #first 2 rows, first 3 columns
 
+x2
+
 x2[1,-2:]
+
 x2
 
 x2[1,-2]
@@ -99,7 +119,7 @@ x2
 
 
 
-
+'''
 #alternate items
 x2[::, ::] #all
 
@@ -120,7 +140,7 @@ x3[0]  #first matrix
 x3[0,1]  #first matrix, 2nd row
 x3[1,2] #2nd matrix, 3rd row
 x3
-
+'''
 
 
 #Topic: Numpy  - array
@@ -147,7 +167,9 @@ array1
 array2 = np.arange(0,100, step=5)
 array2
 
-array2.shape
+sh =array2.shape
+sh[1]
+
 
 array[3]
 
