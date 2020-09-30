@@ -383,6 +383,8 @@ np.concatenate([x,y], axis=0)  #rbind
 #DF
 grades1 = pd.DataFrame(['A','B1'])
 
+grades1
+
 grades1 = {'subject1': ['A1','B1','A2','A3'],'subject2': ['A2','A1','B2','B3']   }
 
 grades1
@@ -390,7 +392,7 @@ grades1
 df1 = pd.DataFrame(grades1)
 df1
 
-grades2 = {'subject3': ['A1','B1','A2','A3'],'subject4': ['A2','A1','B2','B3']   }
+grades2 = {'subject3': ['A1','B1','A2','A3'],'subject4': ['A2','A1','B2','B3']}
 
 df2 = pd.DataFrame(grades2)
 df2
@@ -398,22 +400,49 @@ df2
 
 #join
 pd.concat([df1,df2])
+
 pd.concat([df1,df2], axis=0)
 
 pd.concat([df1,df2], axis=1)
 
 pd.concat([df1,df2], ignore_index=True)  #index values in order
 
-pd.concat([df1,df2], keys=['x','y'])  #adding multiple index
+pd =pd.concat([df1,df2], keys=['x','y'])  #adding multiple index
+
+pd.index
 
 
 print (df)
 
 
+'''
+Create a MultiIndex:
+
+mi = pd.MultiIndex.from_arrays((list('abc'), list('def')))
+mi.names = ['level_1', 'level_2']
+Get level values by supplying level as either integer or name:
+
+mi.get_level_values(0)
+Index(['a', 'b', 'c'], dtype='object', name='level_1')
+mi.get_level_values('level_2')
+Index(['d', 'e', 'f'], dtype='object', name='level_2')
+
+'''
+
+
+
+
 import pandas as pd
 #Join
+
 rollno = pd.Series(range(1,11))
+
 rollno
+
+[ "Student" + str(i) for i in range(1,11)]
+
+list(range(1,11))
+
 
 name = pd.Series(["student" + str(i) for i in range(1,11)])
 name
@@ -456,13 +485,21 @@ pd5
 
 
 fees = pd.DataFrame({'course':['BBA','MBA','BTECH', 'MTECH'], 'fees':[100000, 200000, 150000, 220000]})
+
 fees
 
-pd5.head(2)
-pd6.head(2)
+
+
+
+
+#
+pd5
+pd6
 
 #1 to 1
 pd7=pd.merge(pd5, pd6)
+
+
 pd7
 pd7.head(2)
 
