@@ -514,6 +514,7 @@ name
 dftest1= pd.DataFrame({'rollno':S1, 'Name':name})
 dftest1
 
+
 S2=pd.Series(range(4,14))
 S2
 name = pd.Series(["student" + str(i) for i in range(20,30)])
@@ -526,18 +527,24 @@ dftest1
 
 pd.merge(dftest1, dftest2, on='rollno')
 
-
+pd5
+pd6
 
 pd8=pd.merge(pd5, pd6, on='rollno')
 
+pd8
 
 pd8.head(2)
 
 #many to 1
 
 pd6
+
 fees
-pd.merge(pd6, fees)
+
+pd.merge(pd6, fees, on = 'course')
+
+
 
 #
 pd6b = pd.DataFrame({'rollno1':rollno, 'course':course, 'marks3':marks2})
@@ -545,22 +552,51 @@ pd6b
 pd5
 
 pdmerge= pd.merge(pd5, pd6b, left_on='rollno', right_on='rollno1')
+
+pdmerge
+
 pdmerge.drop('rollno1', axis=1)
+
+
+
+
+rollno1 = pd.Series(range(4, 14))
+
+pd6b = pd.DataFrame({'rollno1':rollno1, 'course':course, 'marks3':marks2})
+pd6b
+pd5
+
+pdmerge= pd.merge(pd5, pd6b, left_on='rollno', right_on='rollno1')
+
+pdmerge
+
+pdmerge.drop('rollno1', axis=1)
+
+
+
+
+
+
 
 
 pd.merge(pd5, pd6b, left_on='rollno', right_on='rollno1').drop('rollno1', axis=1).head(2)  #drop redundant coln
 
+pd5
 #with indices defined
 pd5a = pd5.set_index('rollno')
 
-pd5a.head(1)
+
+pd5a
 
 
+pd6
 pd6a = pd6.set_index('rollno')
-pd6a.head(1)
-
+pd6a
+pd5a
 
 pd.merge(pd5a, pd6a, left_index=True, right_index=True)
+
+pd.merge(pd5a, pd6, left_index=True, right_on='rollno')
 
 pd5a
 pd6a
@@ -594,21 +630,26 @@ fees
 pd.merge(pd6, fees, how='outer')
 
 pd6
+fees
 
 pd.merge(pd6, fees, how='left')
 
 
-pd.merge(pd6, fees, how='right')
+pd.merge(fees, pd6, how='right')
 
 pd5
 pd6
 
 pd4
 
+
+
 pd4.columns
 
 pd4.columns = ['name', 'age','gender','fees']
 pd4
+
+pd4.apply(pd.value_counts)
 
 pd4.age
 
@@ -640,20 +681,62 @@ pd4.fillna(method='bfill')
 
 
 #pd4.dropna(inplace=True) #???? carefull it will make changes to original
+
+
+pd4
+
+
+pd4.columns
+
+pd4.columns = ['name', 'age','gender','fees', 'NIL']
+
+pd4
+
+
 pd4.sort_values(ascending=True, by='name')
 
+pd4.sort_values(ascending=False, by='name')
 
-pd4 = pd.DataFrame([['dhiraj', 50, 'M', 10000], ['kanika', 28, None, 5000], ['tanvi', 20, 'F', None], ['poonam',45,'F',None],['upen',None,'M',None]])
+
+
+
+pd4 = pd.DataFrame([['dhiraj', 50, 'M', 10000], ['kanika', 28, None, 5000], ['tanvi', 20, 'F', None], ['upen',None,'M',None]])
 pd4
 
 pd4.columns = ['name', 'age','gender','fees']
-pd4.sort_values(ascending=False, by='name')
+
+pd4_c =pd4.copy()
+
+
 pd4
-pd4.sort_values(ascending=False, by='name',inplace=True)
-pd4 #change original DF
+pd4a= pd4.sort_values(ascending=True, by='name', inplace = True)
+pd4a
+
+pd4b=pd4.sort_values(ascending=False, by='name', inplace=False)
+pd4b
+
+pd4b=pd4.sort_values(ascending=False, by='name',inplace=True)
+pd4b #change original DF
+
+
+
+pd4
+pd55= pd4.dropna(axis='index', how='all', inplace=False)
+pd55
+
+
+
+
+pd4
+
 pd4.sort_values(ascending=False, by=['age'])
+
+
 pd4.sort_values(ascending=False, by=['fees'], na_position='first')
-pd4.sort_values(ascending=True, by=['fees','age'])
+
+pd4.sort_values(ascending=True, by=['gender','age'])
+
+
 pd4.sort_values(ascending=[True,False], by=['gender','age'])
 #pd4.sort() #depreciated
 
@@ -691,8 +774,9 @@ fees = np.random.randint(50000,100000,size=1000)
 
 fees.mean()
 
-course = np.random.choice(a=['BBA','MBA','BTECH'], size=1000)
+course = np.random.choice(a=['BBA','MBA','BTECH', 'MTech'], size=1000, p=[0.4, 0.5,0.09,0.01])
 
+course
 collections.Counter(course)
 
 city = np.random.choice(a=['Delhi', 'Gurugram','Noida','Faridabad'], size=1000, replace=True, p=[.4,.2,.2,.2])
@@ -700,35 +784,44 @@ city = np.random.choice(a=['Delhi', 'Gurugram','Noida','Faridabad'], size=1000, 
 collections.Counter(city)
 
 
+course = np.random.choice(a=['BBA','MBA','BTECH', 'MTech'], size=1000, p=[0.4, 0.5,0.09,0.01])
 pd8 = pd.DataFrame({'rollno':rollno, 'name':name, 'course':course, 'gender':gender, 'marks1':marks1,'marks2':marks2, 'fees':fees,'city':city})
 pd8
 
 pd8.head(1)
 
+pd8.shape
 #start
 
 pd8.head()
-pd8.tail(10)
+
+pd8.tail()
 
 
 pd8.describe()
 
 pd8.count()
+
 pd8['gender'].value_counts()  #if col has spaces
 
 
 pd8.gender.value_counts()
-#all columns
 
 
-#pd8.apply(pd.value_counts)
+
+
+
+
+pd8.apply(pd.value_counts)
+
+
+
 
 #pd8.apply(pd.value_counts).fillna(0)
 
-pd8.head(1)
+pd8
 
 pdg=pd8.groupby('course')
-
 pdg
 
 pd8.groupby('course').size()
@@ -745,6 +838,8 @@ categ = ['course', 'gender','city']
 pd8.head(2)
 
 pd9 = pd8[categ]
+
+
 pd9.head()
 
 
@@ -760,18 +855,55 @@ pd8.pivot_table(index=['city','course'], columns='gender', aggfunc='size')
 pd.crosstab([pd8.city, pd8.course], pd8.gender)
 
 
-pd8.groupby(['city','course','gender'])['gender'].size().fillna(0).astype(float)
+
+
+pd8.columns
+
+pd8=pd8.fillna(0)
+pd8
+
+pd8.groupby(['city','course'])['course'].size()
+
+
+course = np.random.choice(a=['BBA','MBA','BTECH', 'MTech'], size=1000, p=[0.4, 0.5,0.097,0.003])
+pd8 = pd.DataFrame({'rollno':rollno, 'name':name, 'course':course, 'gender':gender, 'marks1':marks1,'marks2':marks2, 'fees':fees,'city':city})
+pd8.groupby(['city','course'])['course'].size()
+
+#pd8.groupby(['city','course'])['course'].size().fillna(0).astype(float)
+
+
+a= pd.Series(['A', 'B', None, None, 'A', 'A'])
+
+b = pd.Series([11,22,33,44])
+
+
+pd8t= pd.DataFrame({"BB":b,"AA":a})
+
+pd8t
+
+
+
+pd8t.groupby(['AA', 'BB'])['BB'].size().fillna(0).astype(float)
+
+
+
+
 
 #aggregate, fileter, transform apply
 pd8.columns
 
 pd8
+
 pd8.marks1.max()
 
 pd8['marks1'].min()
+
 pd8.groupby(['course']).size()
 
-pd8.groupby(['course']).get_group('MBA')
+
+pd88 = pd8.groupby(['course']).get_group('MTech')
+
+pd88
 
 #pd8.groupby('course').aggregate(min, max)
 
@@ -795,15 +927,31 @@ def gthan(x):
     return x > 70
 
 
-
 pd8['marks1'].apply(gthan).value_counts()
 
-pd8['marks1'].apply(gthan).value_counts().plot(kind='bar', stacked=False, figsize=[16,6], colormap='winter')
+pd88=pd8['marks1'].apply(gthan).value_counts()
+
+pd88.plot()
+
+pd88.plot(kind='bar', stacked=False, figsize=[16,6], colormap='winter')
 
 
-
+pd88
 #copy to clipboard
-pd8.to_clipboard(sep=',')
+
+pd88.to_clipboard(sep='  ')
+
+
+False    510
+True     490
+
+
+False,510
+True,490
+
+
+
+
 '''
 ,rollno,name,gender,marks1,course,marks2
 0,1,student1,F,73,BTECH,85
@@ -820,6 +968,7 @@ pd8.to_clipboard(sep=',')
 
 
 pd8.to_clipboard(sep=',', index=False)
+
 '''
 rollno,name,gender,marks1,course,marks2
 1,student1,F,73,BTECH,85
@@ -838,6 +987,10 @@ pd8b=pd.read_clipboard(sep=',')
 pd8b
 pd8b.columns
 
+
+
+pd8
+
 pd8.to_csv(index=False, path_or_buf = 'pd8.csv')
 
 pd8.to_excel("pd8.xlsx")
@@ -846,21 +999,34 @@ pd8.to_excel("pd81.xlsx",sheet_name='pd8', index=False)
 
 
 #write to more than one sheet in the workbook, it is necessary to specify an ExcelWriter object:
-
 with pd.ExcelWriter('pd8b.xlsx') as writer:
     pd8.to_excel(writer, sheet_name='first', index=False)
     pd8.to_excel(writer, sheet_name='second')
     
+    
+
+f1 = open("aa.txt", 'w')
+f1 = open("aa.txt", 'r')
+
     
 pd8.to_excel('pd8b.xlsx', engine='xlsxwriter')
 
 
 pd8
 
+
+
 def filter_func(x): 
     return x['marks1']>75
 
 filter_func(pd8)
+
+def filter_func(x): 
+    return x>75
+
+filter_func(pd8['marks1'])
+
+
 
 filter_func(pd7)
 
@@ -870,7 +1036,7 @@ pd8[pd8['marks1']>75]
 
 
 pd8.groupby('course').mean()
-pd8.groupby('course').transform(lambda x: x - x.mean())
+#pd8.groupby('course').transform(lambda x: x - x.mean())
 pd8.groupby(list(pd8.select_dtypes(exclude=[np.number]))).agg(np.median).reset_index()
 pd8.groupby('course').agg({'marks1':np.median,'marks2':np.median,'gender':'first','fees':'last'}).reset_index()
 

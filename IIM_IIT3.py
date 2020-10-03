@@ -302,6 +302,81 @@ pd2.dtypes
 
 
 
+import pandas as pd
+
+#Join
+
+rollno = pd.Series(range(1,11))
+
+rollno
+
+[ "Student" + str(i) for i in range(1,11)]
+
+list(range(1,11))
+
+
+name = pd.Series(["student" + str(i) for i in range(1,11)])
+name
+
+genderlist  = ['M','F']
+
+import random
+
+gender = random.choices(genderlist, k=10)
+gender
+
+random.choices(population=genderlist,weights=[0.4, 0.6],k=10)
+
+import numpy as np
+#numpy.random.choice(items, trials, p=probs)
+np.random.choice(a=genderlist, size=10, p=[.2,.8])
+
+
+import numpy as np
+marks1 = np.random.randint(40,100,size=10)
+marks1
+
+
+pd5 = pd.DataFrame({'rollno':rollno, 'name':name, 'gender':gender, 'marks1':marks1})
+
+pd5
+
+#course = random.choices( population=['BBA','MBA','BTECH'] ,weights=[0.4, 0.3,0.3],k=10)
+course = np.random.choice(a=['BBA','MBA','BTECH'], size=10)
+course
+
+marks2 = np.random.randint(40,100,size=10)
+
+marks2
+
+pd6 = pd.DataFrame({'rollno':rollno, 'course':course, 'marks2':marks2})
+pd6
+pd5
+
+
+
+fees = pd.DataFrame({'course':['BBA','MBA','BTECH', 'MTECH'], 'fees':[100000, 200000, 150000, 220000]})
+
+fees
+
+
+
+
+
+#
+pd5
+pd6
+
+#1 to 1
+pd7=pd.merge(pd5, pd6)
+pd7
+
+
+
+
+
+
+
 
 
 
