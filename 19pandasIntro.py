@@ -860,9 +860,9 @@ pd.crosstab([pd8.city, pd8.course], pd8.gender)
 pd8.columns
 
 pd8=pd8.fillna(0)
-pd8
+pd8.head(1)
 
-pd8.groupby(['city','course'])['course'].size()
+pd8.groupby(['city','course'])['course',''].size()
 
 
 course = np.random.choice(a=['BBA','MBA','BTECH', 'MTech'], size=1000, p=[0.4, 0.5,0.097,0.003])
@@ -942,12 +942,6 @@ pd88
 pd88.to_clipboard(sep='  ')
 
 
-False    510
-True     490
-
-
-False,510
-True,490
 
 
 
